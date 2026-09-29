@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP32 Education Firmware Installer</title>
+  <meta name="description" content="ESP32-WROOM-32 用 ESP32 Education Firmware v0.1.4 インストーラ">
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+  <style>
+    :root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Yu Gothic UI", "Meiryo", sans-serif;
+      color-scheme: light;
+    }
+    body { margin: 0; background: #f6f7f9; color: #222; }
+    main { max-width: 780px; margin: 0 auto; padding: 32px 18px 56px; }
+    .card {
+      background: #fff; border: 1px solid #dfe3e8; border-radius: 14px;
+      padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    h1 { margin-top: 0; font-size: 1.8rem; }
+    h2 { margin-top: 28px; font-size: 1.2rem; }
+    .lead { font-size: 1.05rem; }
+    .meta {
+      display: grid; grid-template-columns: 10em 1fr; gap: 8px 14px;
+      margin: 18px 0 24px;
+    }
+    .meta dt { font-weight: 700; }
+    .meta dd { margin: 0; }
+    .step {
+      padding: 16px; background: #f8fafc; border: 1px solid #e3e8ee;
+      border-radius: 10px; margin: 12px 0;
+    }
+    button[slot="activate"] {
+      font: inherit; font-weight: 700; padding: 13px 24px; border: 0;
+      border-radius: 8px; cursor: pointer;
+    }
+    .small { font-size: .92rem; color: #4a5560; }
+    .warning {
+      border-left: 4px solid #c98600; padding: 10px 14px;
+      background: #fff8e6; margin: 18px 0;
+    }
+    .ok {
+      border-left: 4px solid #2d7d46; padding: 10px 14px;
+      background: #edf8f0; margin: 18px 0;
+    }
+    code { background: #eef1f4; padding: .1em .35em; border-radius: 4px; }
+    ol { padding-left: 1.35em; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1>ESP32 Education Firmware Installer</h1>
+    <p class="lead"><strong>ESP32-WROOM-32 / Firmware v0.1.4</strong></p>
+
+    <dl class="meta">
+      <dt>対象ボード</dt><dd>ESP32-WROOM-32</dd>
+      <dt>ファームウェア</dt><dd>ESP32 Education Firmware USB + BLE v0.1.4</dd>
+      <dt>書き込み方式</dt><dd>Web Serial</dd>
+      <dt>必要ブラウザ</dt><dd>Chrome / Edge などのWeb Serial対応ブラウザ</dd>
+    </dl>
+
+    <div class="ok">
+      Arduino IDEや追加ライブラリを利用者側で準備せず、完成済みファームウェアをブラウザから書き込むためのページです。
+    </div>
+
+    <div class="warning">
+      <strong>ESP32-WROOM-32専用です。</strong> XIAO ESP32-C3 / ESP32-S3 などには書き込まないでください。<br>
+      Arduino IDEのシリアルモニターやESP32 Education EditorがESP32のUSBポートを使用中の場合は、先に切断してください。
+    </div>
+
+    <div class="step">
+      <h2 style="margin-top:0">書き込み</h2>
+      <ol>
+        <li>ESP32-WROOM-32をUSBでPCまたはChromebookへ接続します。</li>
+        <li>下のボタンを押します。</li>
+        <li>表示された一覧からESP32のUSBシリアルポートを選びます。</li>
+        <li>画面の案内に従って書き込みを開始します。</li>
+      </ol>
+
+      <esp-web-install-button manifest="manifest.json">
+        <button slot="activate">ESP32に接続して v0.1.4 を書き込む</button>
+        <span slot="unsupported">このブラウザはWeb Serialに対応していません。ChromeまたはEdgeで開いてください。</span>
+        <span slot="not-allowed">このページはHTTPSまたはlocalhostで開く必要があります。</span>
+      </esp-web-install-button>
+    </div>
+
+    <h2>書き込み後の確認</h2>
+    <p>ESP32 Education Editorから接続し、ファームウェア情報が <code>SYS:FW:USB_BLE_0.1.4</code> となることを確認してください。</p>
+
+    <h2>v0.1.4</h2>
+    <p>USB + BLE共通ファームウェア。v0.1.3の機能に加え、OLEDの指定範囲消去 <code>OLED:FILLBLACK:x,y,w,h</code> を復元しています。</p>
+
+    <p class="small">Copyright © 2026 Toshikazu Shimada / Davinichi — ESP32 Education Editor</p>
+  </div>
+</main>
+</body>
+</html>

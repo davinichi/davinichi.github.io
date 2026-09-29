@@ -20,6 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      - name: Checkout GitHub Pages repository
+        uses: actions/checkout@v6
+        with:
+          path: site
+
       - name: Checkout ESP32 Education Editor source
         uses: actions/checkout@v6
         with:
@@ -44,6 +49,15 @@ jobs:
 
       - name: Verify web build
         run: test -f source/packages/scratch-gui/build/index.html
+
+      - name: Add firmware installer to web build
+        run: |
+          rm -rf source/packages/scratch-gui/build/firmware
+          mkdir -p source/packages/scratch-gui/build/firmware
+          cp -a site/firmware/. source/packages/scratch-gui/build/firmware/
+          test -f source/packages/scratch-gui/build/firmware/index.html
+          test -f source/packages/scratch-gui/build/firmware/manifest.json
+          test -f source/packages/scratch-gui/build/firmware/firmware/esp32_education_editor_firmware_usb_ble_v0_1_4.ino.merged.bin
 
       - name: Disable Jekyll processing
         run: touch source/packages/scratch-gui/build/.nojekyll

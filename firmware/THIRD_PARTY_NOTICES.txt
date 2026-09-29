@@ -1,0 +1,9 @@
+Third-party component used by the installer page
+=================================================
+
+ESP Web Tools
+https://github.com/esphome/esp-web-tools
+License: Apache License 2.0
+
+This installer page loads ESP Web Tools v10 from unpkg.com at runtime.
+Please retain applicable third-party license and copyright notices when redistributing.

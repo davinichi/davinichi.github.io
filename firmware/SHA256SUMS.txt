@@ -1,0 +1,1 @@
+da26505be3e4298c5359d325ea5292718df85029c002f994cdd68b3ef75c5246  firmware/esp32_education_editor_firmware_usb_ble_v0_1_4.ino.merged.bin

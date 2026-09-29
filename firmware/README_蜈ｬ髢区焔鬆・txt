@@ -1,0 +1,54 @@
+ESP32 Education Firmware Installer v0.1.4
+=========================================
+
+対象
+----
+ESP32-WROOM-32
+ESP32 Education Firmware USB + BLE v0.1.4
+
+目的
+----
+Arduino IDE、ESP32 Board Package、DHT/OLED/BLE関連ライブラリを
+最終利用者側で準備せず、Chrome / EdgeなどのWeb Serial対応ブラウザから
+完成済みファームウェアを書き込めるようにします。
+
+公開方法
+--------
+このフォルダの内容を、GitHub Pagesで公開するフォルダへそのまま配置してください。
+
+必須構成:
+  index.html
+  manifest.json
+  firmware/
+    esp32_education_editor_firmware_usb_ble_v0_1_4.ino.merged.bin
+  THIRD_PARTY_NOTICES.txt
+  SHA256SUMS.txt
+
+公開後はHTTPSのURLから index.html を開いてください。
+
+利用者の操作
+------------
+1. ESP32-WROOM-32をUSB接続する。
+2. Chrome / EdgeでInstallerページを開く。
+3. 「ESP32に接続して v0.1.4 を書き込む」を押す。
+4. ESP32のUSBシリアルポートを選択する。
+5. 画面の案内に従って書き込む。
+6. 書き込み後、ESP32 Education Editorから接続して動作確認する。
+
+注意
+----
+- ESP32-WROOM-32専用です。
+- Arduino IDEのシリアルモニターを閉じてから使用してください。
+- ESP32 Education Editorが同じUSBポートを使用中の場合は切断してください。
+- XIAO ESP32-C3 / ESP32-S3等には使用しないでください。
+- GitHub PagesなどHTTPSで配信してください。localhostは開発時のみ使用可能です。
+
+確認済み
+--------
+- v0.1.4 Arduino IDEからESP32-WROOM-32へ書き込み
+- USB経由のOLED FILLBLACK動作
+- v0.1.3までにBLE双方向通信、GPIO、DHT11、OLED表示を確認
+
+ファームウェア確認文字列
+------------------------
+SYS:FW:USB_BLE_0.1.4

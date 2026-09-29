@@ -1,0 +1,17 @@
+{
+  "name": "ESP32 Education Firmware",
+  "version": "0.1.4",
+  "new_install_prompt_erase": true,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "firmware/esp32_education_editor_firmware_usb_ble_v0_1_4.ino.merged.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
