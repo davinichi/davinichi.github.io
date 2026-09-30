@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ESP32 Education Firmware Installer</title>
-  <meta name="description" content="ESP32-WROOM-32 用 ESP32 Education Firmware v0.1.4 インストーラ">
+  <meta name="description" content="ESP32-WROOM-32 用 ESP32 Education Firmware v0.1.5 インストーラ">
   <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
   <style>
     :root {
@@ -51,11 +51,11 @@
 <main>
   <div class="card">
     <h1>ESP32 Education Firmware Installer</h1>
-    <p class="lead"><strong>ESP32-WROOM-32 / Firmware v0.1.4</strong></p>
+    <p class="lead"><strong>ESP32-WROOM-32 / Firmware v0.1.5</strong></p>
 
     <dl class="meta">
       <dt>対象ボード</dt><dd>ESP32-WROOM-32</dd>
-      <dt>ファームウェア</dt><dd>ESP32 Education Firmware USB + BLE v0.1.4</dd>
+      <dt>ファームウェア</dt><dd>ESP32 Education Firmware v0.1.5</dd>
       <dt>書き込み方式</dt><dd>Web Serial</dd>
       <dt>必要ブラウザ</dt><dd>Chrome / Edge などのWeb Serial対応ブラウザ</dd>
     </dl>
@@ -79,17 +79,17 @@
       </ol>
 
       <esp-web-install-button manifest="manifest.json">
-        <button slot="activate">ESP32に接続して v0.1.4 を書き込む</button>
+        <button slot="activate">ESP32に接続して v0.1.5 を書き込む</button>
         <span slot="unsupported">このブラウザはWeb Serialに対応していません。ChromeまたはEdgeで開いてください。</span>
         <span slot="not-allowed">このページはHTTPSまたはlocalhostで開く必要があります。</span>
       </esp-web-install-button>
     </div>
 
     <h2>書き込み後の確認</h2>
-    <p>ESP32 Education Editorから接続し、ファームウェア情報が <code>SYS:FW:USB_BLE_0.1.4</code> となることを確認してください。</p>
+    <p>ESP32 Education Editorから接続し、<code>SYS:STATUS</code> を実行して <code>SYS:READY:OK</code>、MACアドレス、Wi-Fiチャンネル1が返ることを確認してください。</p>
 
-    <h2>v0.1.4</h2>
-    <p>USB + BLE共通ファームウェア。v0.1.3の機能に加え、OLEDの指定範囲消去 <code>OLED:FILLBLACK:x,y,w,h</code> を復元しています。</p>
+    <h2>v0.1.5</h2>
+    <p>ESP-NOWの安定動作を優先したファームウェアです。USB / Web Serial、GPIO、DHT11 / DHT22、OLED、OLED指定範囲消去、ESP-NOWに対応しています。BLE UARTは本バージョンには含まれていません。</p>
 
     <p class="small">Copyright © 2026 Toshikazu Shimada / Davinichi — ESP32 Education Editor</p>
   </div>

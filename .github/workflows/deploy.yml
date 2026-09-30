@@ -57,7 +57,7 @@ jobs:
           cp -a site/firmware/. source/packages/scratch-gui/build/firmware/
           test -f source/packages/scratch-gui/build/firmware/index.html
           test -f source/packages/scratch-gui/build/firmware/manifest.json
-          test -f source/packages/scratch-gui/build/firmware/firmware/esp32_education_editor_firmware_usb_ble_v0_1_4.ino.merged.bin
+          test -f source/packages/scratch-gui/build/firmware/firmware/esp32_education_editor_firmware_v0_1_5.ino.merged.bin
 
       - name: Disable Jekyll processing
         run: touch source/packages/scratch-gui/build/.nojekyll
