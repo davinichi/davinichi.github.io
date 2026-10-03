@@ -1,1 +1,2 @@
 f4dd17ae9075822dd4500f12c1d5410f2aa95bcba9ae7b3ea404ed599a5115e0  firmware/esp32_education_editor_firmware_v0_1_5.ino.merged.bin
+2021c2a3c1fff0e6deb73283ef4f6c4d1b5430d025bff078de84226af4d15c6b  firmware/esp32_education_editor_firmware_v0_1_6.ino.merged.bin
