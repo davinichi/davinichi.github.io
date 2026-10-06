@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ESP32 Education Firmware Installer</title>
-  <meta name="description" content="ESP32-WROOM-32 用 ESP32 Education Firmware v0.1.7 インストーラ">
+  <meta name="description" content="ESP32 Education Firmware v0.1.7 installer for ESP32-WROOM-32" data-i18n-content="description">
   <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
   <style>
     :root {
@@ -45,51 +45,51 @@
     }
     code { background: #eef1f4; padding: .1em .35em; border-radius: 4px; }
     ol { padding-left: 1.35em; }
+    .language-switch { text-align: right; margin-bottom: 16px; }
+    .language-switch button { font: inherit; cursor: pointer; }
+    .language-switch button[aria-pressed="true"] { font-weight: 700; }
   </style>
+  <script src="i18n.js" defer></script>
 </head>
 <body>
 <main>
   <div class="card">
+    <nav class="language-switch"><button type="button" data-lang="ja" lang="ja">日本語</button> / <button type="button" data-lang="en" lang="en">English</button></nav>
     <h1>ESP32 Education Firmware Installer</h1>
     <p class="lead"><strong>ESP32-WROOM-32 / Firmware v0.1.7</strong></p>
 
     <dl class="meta">
-      <dt>対象ボード</dt><dd>ESP32-WROOM-32</dd>
-      <dt>ファームウェア</dt><dd>ESP32 Education Firmware v0.1.7</dd>
-      <dt>書き込み方式</dt><dd>Web Serial</dd>
-      <dt>必要ブラウザ</dt><dd>Chrome / Edge などのWeb Serial対応ブラウザ</dd>
+      <dt data-i18n="board">Target board</dt><dd>ESP32-WROOM-32</dd>
+      <dt data-i18n="firmware">Firmware</dt><dd>ESP32 Education Firmware v0.1.7</dd>
+      <dt data-i18n="method">Installation method</dt><dd>Web Serial</dd>
+      <dt data-i18n="browser">Required browser</dt><dd data-i18n="browserValue">A browser with Web Serial support, such as Chrome or Edge</dd>
     </dl>
 
-    <div class="ok">
-      Arduino IDEや追加ライブラリを利用者側で準備せず、完成済みファームウェアをブラウザから書き込むためのページです。
-    </div>
+    <div class="ok" data-i18n="intro">Install prebuilt firmware directly from your browser without setting up Arduino IDE or additional libraries.</div>
 
-    <div class="warning">
-      <strong>ESP32-WROOM-32専用です。</strong> XIAO ESP32-C3 / ESP32-S3 などには書き込まないでください。<br>
-      Arduino IDEのシリアルモニターやESP32 Education EditorがESP32のUSBポートを使用中の場合は、先に切断してください。
-    </div>
+    <div class="warning" data-i18n-html="warning"><strong>For ESP32-WROOM-32 only.</strong> Do not install this firmware on XIAO ESP32-C3, ESP32-S3, or other boards.<br>Disconnect Arduino IDE’s Serial Monitor or ESP32 Education Editor first if either is using the ESP32 USB port.</div>
 
     <div class="step">
-      <h2 style="margin-top:0">書き込み</h2>
+      <h2 style="margin-top:0" data-i18n="install">Install Firmware</h2>
       <ol>
-        <li>ESP32-WROOM-32をUSBでPCまたはChromebookへ接続します。</li>
-        <li>下のボタンを押します。</li>
-        <li>表示された一覧からESP32のUSBシリアルポートを選びます。</li>
-        <li>画面の案内に従って書き込みを開始します。</li>
+        <li data-i18n="step1">Connect your ESP32-WROOM-32 to a PC or Chromebook via USB.</li>
+        <li data-i18n="step2">Click the button below.</li>
+        <li data-i18n="step3">Select the ESP32 USB serial port from the list.</li>
+        <li data-i18n="step4">Follow the on-screen instructions to start installation.</li>
       </ol>
 
       <esp-web-install-button manifest="manifest.json">
-        <button slot="activate">ESP32に接続して v0.1.7 を書き込む</button>
-        <span slot="unsupported">このブラウザはWeb Serialに対応していません。ChromeまたはEdgeで開いてください。</span>
-        <span slot="not-allowed">このページはHTTPSまたはlocalhostで開く必要があります。</span>
+        <button slot="activate" data-i18n="activate">Connect to ESP32 and install v0.1.7</button>
+        <span slot="unsupported" data-i18n="unsupported">This browser does not support Web Serial. Open this page in Chrome or Edge.</span>
+        <span slot="not-allowed" data-i18n="notAllowed">This page must be opened over HTTPS or on localhost.</span>
       </esp-web-install-button>
     </div>
 
-    <h2>書き込み後の確認</h2>
-    <p>ESP32 Education Editorから接続し、<code>SYS:STATUS</code> を実行して <code>SYS:READY:OK</code>、MACアドレス、現在のWi-Fiチャンネルが返ることを確認してください。</p>
+    <h2 data-i18n="verifyTitle">After Installation</h2>
+    <p data-i18n-html="verify">Connect from ESP32 Education Editor and run <code>SYS:STATUS</code>. Check that the response includes <code>SYS:READY:OK</code>, the MAC address, and the current Wi-Fi channel.</p>
 
     <h2>v0.1.7</h2>
-    <p>USB / Web Serial、GPIO、DHT11 / DHT22、OLED、OLED指定範囲消去、ESP-NOW、サーボモーター制御に対応しています。v0.1.7では、汎用PWM出力とHC-SR04超音波距離センサに対応し、Arduino-ESP32 3.x環境でPWM停止後に再度PWM出力できなくなる問題を修正しました。BLE UARTは本バージョンには含まれていません。</p>
+    <p data-i18n="release">Supports USB / Web Serial, GPIO, DHT11 / DHT22, OLED, clearing a selected OLED area, HC-SR04 ultrasonic distance sensors, ESP-NOW, and servo control. Version 0.1.7 adds general-purpose PWM output and HC-SR04 support, and fixes an issue in Arduino-ESP32 3.x where PWM output could not resume after being stopped. BLE UART is not included in this version.</p>
 
     <p class="small">Copyright © 2026 Toshikazu Shimada / Davinichi — ESP32 Education Editor</p>
   </div>
