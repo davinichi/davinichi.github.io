@@ -14,13 +14,13 @@
         "step2": "Click the button below.",
         "step3": "Select the ESP32 USB serial port from the list.",
         "step4": "Follow the on-screen instructions to start installation.",
-        "activate": "Connect to ESP32 and install v0.1.7",
+        "activate": "Connect to ESP32 and install v0.1.8",
         "unsupported": "This browser does not support Web Serial. Open this page in Chrome or Edge.",
         "notAllowed": "This page must be opened over HTTPS or on localhost.",
         "verifyTitle": "After Installation",
         "verify": "Connect from ESP32 Education Editor and run <code>SYS:STATUS</code>. Check that the response includes <code>SYS:READY:OK</code>, the MAC address, and the current Wi-Fi channel.",
         "release": "Supports USB / Web Serial, GPIO, DHT11 / DHT22, OLED, clearing a selected OLED area, HC-SR04 ultrasonic distance sensors, ESP-NOW, and servo control. Version 0.1.7 adds general-purpose PWM output and HC-SR04 support, and fixes an issue in Arduino-ESP32 3.x where PWM output could not resume after being stopped. BLE UART is not included in this version.",
-        "description": "ESP32 Education Firmware v0.1.7 installer for ESP32-WROOM-32",
+        "description": "ESP32 Education Firmware v0.1.8 installer for ESP32-WROOM-32",
         "language": "Language"
     },
     "ja": {
@@ -36,13 +36,13 @@
         "step2": "下のボタンを押します。",
         "step3": "表示された一覧からESP32のUSBシリアルポートを選びます。",
         "step4": "画面の案内に従って書き込みを開始します。",
-        "activate": "ESP32に接続して v0.1.7 を書き込む",
+        "activate": "ESP32に接続して v0.1.8 を書き込む",
         "unsupported": "このブラウザはWeb Serialに対応していません。ChromeまたはEdgeで開いてください。",
         "notAllowed": "このページはHTTPSまたはlocalhostで開く必要があります。",
         "verifyTitle": "書き込み後の確認",
         "verify": "ESP32 Education Editorから接続し、<code>SYS:STATUS</code> を実行して <code>SYS:READY:OK</code>、MACアドレス、現在のWi-Fiチャンネルが返ることを確認してください。",
-        "release": "USB / Web Serial、GPIO、DHT11 / DHT22、OLED、OLED指定範囲消去、ESP-NOW、サーボモーター制御に対応しています。v0.1.7では、汎用PWM出力とHC-SR04超音波距離センサに対応し、Arduino-ESP32 3.x環境でPWM停止後に再度PWM出力できなくなる問題を修正しました。BLE UARTは本バージョンには含まれていません。",
-        "description": "ESP32-WROOM-32 用 ESP32 Education Firmware v0.1.7 インストーラ",
+        "release": "USB / Web Serial、GPIO、DHT11 / DHT22、OLED、OLED指定範囲消去、ESP-NOW、サーボモーター制御に対応しています。v0.1.8では、同じGPIOでHIGH/LOWのデジタル出力とPWMを交互に使用しても、2回目以降のPWMが正しく動作するようGPIOとLEDCの切り替え処理を修正しました。BLE UARTは本バージョンには含まれていません。",
+        "description": "ESP32-WROOM-32 用 ESP32 Education Firmware v0.1.8 インストーラ",
         "language": "表示言語"
     }
 };
