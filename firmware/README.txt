@@ -1,4 +1,4 @@
-ESP32 Education Firmware Installer v0.1.7
+ESP32 Education Firmware Installer v0.1.8
 
 ESP32 Education Editor用の共通ファームウェアを
 ESP32-WROOM-32へWebブラウザから書き込むためのWeb Installerです。
@@ -10,7 +10,7 @@ https://davinichi.github.io/firmware/
 ESP32-WROOM-32
 
 正式ファームウェア:
-ESP32 Education Firmware v0.1.7
+ESP32 Education Firmware v0.1.8
 
 主な機能:
 - USB / Web Serial通信
@@ -36,11 +36,12 @@ ESP32 Education Firmware v0.1.7
   - 切断
 - ESP-NOW経由のリモートサーボ制御
 
-v0.1.7では、v0.1.6の機能を維持したまま、
-汎用PWM出力とHC-SR04超音波距離センサへの対応を追加しました。
+v0.1.8では、v0.1.7の機能を維持したまま、
+同じGPIOでHIGH/LOWのデジタル出力とPWMを交互に使用した場合の
+GPIOとLEDCの切り替え処理を修正しました。
 
-また、Arduino-ESP32 3.x環境でPWM停止後に
-再度PWM出力できなくなる問題を修正しました。
+これにより、デジタル出力へ切り替えた後でも、
+次回PWM出力時にLEDCを再AttachしてPWMを再開できます。
 
 起動時のESP-NOWチャンネルは1です。
 チャンネル設定は再起動すると1へ戻ります。
@@ -48,13 +49,14 @@ v0.1.7では、v0.1.6の機能を維持したまま、
 HC-SR04のECHO端子は約5Vのため、
 ESP32へ接続する場合は抵抗分圧などで3.3V以下にしてください。
 
-BLE UARTはv0.1.7には含まれていません。
+BLE UARTはv0.1.8には含まれていません。
 
 実機確認済み:
 - USB / Web Serial
 - GPIOデジタル入出力
 - GPIO PWM 0 / 25 / 50 / 75 / 100%
 - PWM停止後の再開
+- GPIO HIGH/LOW → PWMの繰り返し切替（実機確認済み）
 - DHT11 / DHT22
 - OLED
 - HC-SR04距離測定
@@ -66,7 +68,7 @@ BLE UARTはv0.1.7には含まれていません。
 - ESP32 Education Editor v0.6との統合動作
 
 Firmware Release:
-https://github.com/davinichi/ESP32-Education-Editor/releases/tag/firmware-v0.1.7
+https://github.com/davinichi/ESP32-Education-Editor/releases/tag/firmware-v0.1.8
 
 ESP32 Education Editor:
 https://davinichi.github.io/
