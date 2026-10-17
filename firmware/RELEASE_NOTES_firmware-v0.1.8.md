@@ -86,7 +86,7 @@ Planned file:
 
 SHA-256:
 
-To be added after the final merged binary is built and verified.
+`c35bc34918099072b789eb0b05c11fff7538647b5c0776b42c1f5f4695b232e1`
 
 ## Notes
 
