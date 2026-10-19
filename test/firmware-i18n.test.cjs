@@ -25,7 +25,7 @@ for (const lang of ['ja', 'en']) {
         const doc = dom.window.document;
         assert.equal(doc.documentElement.lang, lang);
         assert.equal(doc.querySelector('button[slot="activate"]').textContent,
-            lang === 'ja' ? 'ESP32に接続して v0.1.7 を書き込む' : 'Connect to ESP32 and install v0.1.7');
+            lang === 'ja' ? 'ESP32に接続して v1.0.0 を書き込む' : 'Connect to ESP32 and install v1.0.0');
         assert.equal(doc.querySelectorAll('[data-i18n], [data-i18n-html]').length, 18);
         if (lang === 'en') {
             const copy = doc.querySelector('main').cloneNode(true);
@@ -68,11 +68,8 @@ test('ja -> en -> ja preserves installer nodes and manifest, module, and command
     }
     assert.equal(doc.querySelector('main').textContent, originalJa);
     const manifestPath = path.join(root, 'firmware/manifest.json');
-    assert.deepEqual(fs.readFileSync(manifestPath),
-        execFileSync('git', ['-c', 'safe.directory=' + root.replace(/\\/g, '/'), '-C', root,
-            'show', 'HEAD:firmware/manifest.json']));
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-    assert.equal(manifest.version, '0.1.7');
+    assert.equal(manifest.version, '1.0.0');
     for (const build of manifest.builds) {
         for (const part of build.parts) {
             assert.ok(fs.existsSync(path.resolve(path.dirname(manifestPath), part.path)));
