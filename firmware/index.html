@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ESP32 Education Firmware Installer</title>
-  <meta name="description" content="ESP32 Education Firmware v0.1.8 installer for ESP32-WROOM-32" data-i18n-content="description">
+  <meta name="description" content="ESP32 Education Firmware v1.0.0 installer for ESP32-WROOM-32" data-i18n-content="description">
   <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
   <style>
     :root {
@@ -56,11 +56,11 @@
   <div class="card">
     <nav class="language-switch"><button type="button" data-lang="ja" lang="ja">日本語</button> / <button type="button" data-lang="en" lang="en">English</button></nav>
     <h1>ESP32 Education Firmware Installer</h1>
-    <p class="lead"><strong>ESP32-WROOM-32 / Firmware v0.1.8</strong></p>
+    <p class="lead"><strong>ESP32-WROOM-32 / Firmware v1.0.0</strong></p>
 
     <dl class="meta">
       <dt data-i18n="board">Target board</dt><dd>ESP32-WROOM-32</dd>
-      <dt data-i18n="firmware">Firmware</dt><dd>ESP32 Education Firmware v0.1.8</dd>
+      <dt data-i18n="firmware">Firmware</dt><dd>ESP32 Education Firmware v1.0.0</dd>
       <dt data-i18n="method">Installation method</dt><dd>Web Serial</dd>
       <dt data-i18n="browser">Required browser</dt><dd data-i18n="browserValue">A browser with Web Serial support, such as Chrome or Edge</dd>
     </dl>
@@ -79,7 +79,7 @@
       </ol>
 
       <esp-web-install-button manifest="manifest.json">
-        <button slot="activate" data-i18n="activate">Connect to ESP32 and install v0.1.8</button>
+        <button slot="activate" data-i18n="activate">Connect to ESP32 and install v1.0.0</button>
         <span slot="unsupported" data-i18n="unsupported">This browser does not support Web Serial. Open this page in Chrome or Edge.</span>
         <span slot="not-allowed" data-i18n="notAllowed">This page must be opened over HTTPS or on localhost.</span>
       </esp-web-install-button>
@@ -88,11 +88,12 @@
     <h2 data-i18n="verifyTitle">After Installation</h2>
     <p data-i18n-html="verify">Connect from ESP32 Education Editor and run <code>SYS:STATUS</code>. Check that the response includes <code>SYS:READY:OK</code>, the MAC address, and the current Wi-Fi channel.</p>
 
-    <h2>v0.1.8</h2>
-    <p data-i18n="release">Supports USB / Web Serial, GPIO, DHT11 / DHT22, OLED, clearing a selected OLED area, HC-SR04 ultrasonic distance sensors, ESP-NOW, and servo control. Version 0.1.8 improves GPIO/PWM switching so the same GPIO can alternate between digital HIGH/LOW output and PWM without losing PWM operation on later runs. BLE UART is not included in this version.</p>
+    <h2>v1.0.0</h2>
+    <p data-i18n="release">Firmware v1.0.0 retains GPIO/PWM, DHT11/DHT22, OLED, HC-SR04, ESP-NOW and servo control, and adds I2C Scanner, BME280, INA219 and automatic firmware version reporting. AE-BME280 requires 3.3V, J3 bridged for I2C and SDO grounded for address 0x76. BLE UART is not included.</p>
 
     <p class="small">Copyright © 2026 Toshikazu Shimada / Davinichi — ESP32 Education Editor</p>
   </div>
+<p><a href="../manuals/ESP32_Education_Editor_v1.0_JA.pdf">Japanese PDF</a> / <a href="../manuals/ESP32_Education_Editor_v1.0_EN.pdf">English PDF</a></p>
 </main>
 </body>
 </html>

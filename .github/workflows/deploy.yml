@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: davinichi/ESP32-Education-Editor
-          ref: main
+          ref: 63dc35b6cfe6adf5b6f5edb881d04ccc2f697b51 # Editor v1.0, PR #12
           path: source
 
       - name: Setup Node.js
@@ -57,7 +57,20 @@ jobs:
           cp -a site/firmware/. source/packages/scratch-gui/build/firmware/
           test -f source/packages/scratch-gui/build/firmware/index.html
           test -f source/packages/scratch-gui/build/firmware/manifest.json
-          test -f source/packages/scratch-gui/build/firmware/firmware/esp32_education_editor_firmware_v0_1_5.ino.merged.bin
+          node - <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const root = 'source/packages/scratch-gui/build/firmware';
+          const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
+          if (manifest.version !== '1.0.0') throw Error('Unexpected firmware version');
+          for (const build of manifest.builds) for (const part of build.parts) {
+            const file = path.resolve(root, part.path);
+            if (!file.startsWith(path.resolve(root) + path.sep) || !fs.statSync(file).isFile()) {
+              throw Error('Invalid firmware path');
+            }
+          }
+          NODE
+          cp -a site/manuals source/packages/scratch-gui/build/manuals
 
       - name: Disable Jekyll processing
         run: touch source/packages/scratch-gui/build/.nojekyll
