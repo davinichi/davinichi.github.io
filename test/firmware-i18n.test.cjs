@@ -3,7 +3,6 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const {runInNewContext} = require('node:vm');
-const {execFileSync} = require('node:child_process');
 const {JSDOM} = require('jsdom');
 const root = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'firmware/index.html'), 'utf8');
@@ -44,7 +43,7 @@ for (const [query, browser, expected] of [
         dom.window.close();
     });
 }
-test('ja -> en -> ja preserves installer nodes and manifest, module, and command references', () => {
+test('ja -> en -> ja preserves installer nodes, manifest, module, and verification values', () => {
     const dom = setup('?lang=ja&other=keep');
     const doc = dom.window.document;
     const installer = doc.querySelector('esp-web-install-button');
@@ -64,7 +63,7 @@ test('ja -> en -> ja preserves installer nodes and manifest, module, and command
         assert.deepEqual(Array.from(installer.children, node => node.getAttribute('slot')),
             ['activate', 'unsupported', 'not-allowed']);
         assert.deepEqual(Array.from(doc.querySelectorAll('code'), node => node.textContent),
-            ['SYS:STATUS', 'SYS:READY:OK']);
+            ['1.0.0', 'OK']);
     }
     assert.equal(doc.querySelector('main').textContent, originalJa);
     const manifestPath = path.join(root, 'firmware/manifest.json');
@@ -77,6 +76,35 @@ test('ja -> en -> ja preserves installer nodes and manifest, module, and command
     }
     dom.window.close();
 });
+
+test('initial HTML verification matches the English translation', () => {
+    const initial = new JSDOM(html);
+    const translated = setup('?lang=en');
+    assert.equal(initial.window.document.querySelector('[data-i18n-html="verify"]').innerHTML,
+        translated.window.document.querySelector('[data-i18n-html="verify"]').innerHTML);
+    initial.window.close();
+    translated.window.close();
+});
+
+for (const [lang, labels] of [
+    ['ja', ['ESP32に接続', 'ESP32のFirmwareバージョン', 'ESP32の状態', 'ESP32の状態を更新',
+        '不明（Firmware v1.0.0を推奨）']],
+    ['en', ['connect to ESP32', 'ESP32 Firmware version', 'ESP32 status', 'refresh ESP32 status',
+        'Unknown (Firmware v1.0.0 recommended)']]
+]) {
+    test(lang + ' verification uses Editor blocks to check version and status', () => {
+        const dom = setup('?lang=' + lang);
+        const verify = dom.window.document.querySelector('[data-i18n-html="verify"]');
+        const text = verify.textContent;
+        for (const label of ['ESP32 Connection', ...labels]) assert.ok(text.includes(label), label);
+        assert.deepEqual(Array.from(verify.querySelectorAll('code'), node => node.textContent),
+            ['1.0.0', 'OK']);
+        assert.equal(verify.querySelector('a').href, 'https://davinichi.github.io/');
+        assert.doesNotMatch(text, /SYS:STATUS|SYS:READY:OK/);
+        assert.match(text, lang === 'ja' ? /SYSコマンドを手入力する必要はありません/ : /No manual SYS command entry is needed/);
+        dom.window.close();
+    });
+}
 
 test('installer HTML parses without errors and local scripts exist', () => {
     const errors = [];

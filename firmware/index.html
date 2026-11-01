@@ -86,7 +86,7 @@
     </div>
 
     <h2 data-i18n="verifyTitle">After Installation</h2>
-    <p data-i18n-html="verify">Connect from ESP32 Education Editor and run <code>SYS:STATUS</code>. Check that the response includes <code>SYS:READY:OK</code>, the MAC address, and the current Wi-Fi channel.</p>
+    <p data-i18n-html="verify">Disconnect the Installer after installation, and close its tab if needed to release the USB port. Open <a href="https://davinichi.github.io/">ESP32 Education Editor v1.0</a> in Chrome or Edge, add the <strong>ESP32 Connection</strong> extension, and run the <strong>connect to ESP32</strong> block. Select your ESP32 USB serial port and grant access.<br>Click <strong>ESP32 Firmware version</strong>, or select its checkbox to show a monitor, and confirm <code>1.0.0</code>. Also click <strong>ESP32 status</strong>, or show its monitor, and confirm <code>OK</code>. The version is retrieved automatically on connection; <strong>refresh ESP32 status</strong> retrieves it again.<br>If the version is older or shows <strong>Unknown (Firmware v1.0.0 recommended)</strong>, disconnect the Editor, install v1.0.0 with the Installer, and reconnect to check again. No manual SYS command entry is needed.</p>
 
     <h2>v1.0.0</h2>
     <p data-i18n="release">Firmware v1.0.0 retains GPIO/PWM, DHT11/DHT22, OLED, HC-SR04, ESP-NOW and servo control, and adds I2C Scanner, BME280, INA219 and automatic firmware version reporting. AE-BME280 requires 3.3V, J3 bridged for I2C and SDO grounded for address 0x76. BLE UART is not included.</p>
