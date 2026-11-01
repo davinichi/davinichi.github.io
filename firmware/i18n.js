@@ -18,7 +18,7 @@
         "unsupported": "This browser does not support Web Serial. Open this page in Chrome or Edge.",
         "notAllowed": "This page must be opened over HTTPS or on localhost.",
         "verifyTitle": "After Installation",
-        "verify": "Connect from ESP32 Education Editor and run <code>SYS:STATUS</code>. Check that the response includes <code>SYS:READY:OK</code>, the MAC address, and the current Wi-Fi channel.",
+        "verify": "Disconnect the Installer after installation, and close its tab if needed to release the USB port. Open <a href=\"https://davinichi.github.io/\">ESP32 Education Editor v1.0</a> in Chrome or Edge, add the <strong>ESP32 Connection</strong> extension, and run the <strong>connect to ESP32</strong> block. Select your ESP32 USB serial port and grant access.<br>Click <strong>ESP32 Firmware version</strong>, or select its checkbox to show a monitor, and confirm <code>1.0.0</code>. Also click <strong>ESP32 status</strong>, or show its monitor, and confirm <code>OK</code>. The version is retrieved automatically on connection; <strong>refresh ESP32 status</strong> retrieves it again.<br>If the version is older or shows <strong>Unknown (Firmware v1.0.0 recommended)</strong>, disconnect the Editor, install v1.0.0 with the Installer, and reconnect to check again. No manual SYS command entry is needed.",
         "release": "Firmware v1.0.0 retains GPIO/PWM, DHT11/DHT22, OLED, HC-SR04, ESP-NOW and servo control, and adds I2C Scanner, BME280, INA219 and automatic firmware version reporting. AE-BME280 requires 3.3V, J3 bridged for I2C and SDO grounded for address 0x76. BLE UART is not included.",
         "description": "ESP32 Education Firmware v1.0.0 installer for ESP32-WROOM-32",
         "language": "Language"
@@ -40,7 +40,7 @@
         "unsupported": "このブラウザはWeb Serialに対応していません。ChromeまたはEdgeで開いてください。",
         "notAllowed": "このページはHTTPSまたはlocalhostで開く必要があります。",
         "verifyTitle": "書き込み後の確認",
-        "verify": "ESP32 Education Editorから接続し、<code>SYS:STATUS</code> を実行して <code>SYS:READY:OK</code>、MACアドレス、現在のWi-Fiチャンネルが返ることを確認してください。",
+        "verify": "書き込みが完了したらInstallerを切断し、必要ならタブを閉じてUSBポートを解放します。ChromeまたはEdgeで<a href=\"https://davinichi.github.io/\">ESP32 Education Editor v1.0</a>を開き、<strong>ESP32 Connection</strong>拡張を追加して「<strong>ESP32に接続</strong>」ブロックを実行します。ESP32のUSBシリアルポートを選び、接続を許可してください。<br>「<strong>ESP32のFirmwareバージョン</strong>」をクリックするか、チェックを入れてモニター表示し、<code>1.0.0</code>であることを確認します。「<strong>ESP32の状態</strong>」もクリックするかモニター表示し、<code>OK</code>であることを確認してください。バージョンは接続時に自動取得され、「<strong>ESP32の状態を更新</strong>」でも再取得できます。<br>「<strong>不明（Firmware v1.0.0を推奨）</strong>」や古いバージョンが表示される場合は、Editorを切断し、Installerでv1.0.0を書き込んでから再接続して確認します。SYSコマンドを手入力する必要はありません。",
         "release": "Firmware v1.0.0はGPIO/PWM、DHT11/DHT22、OLED、HC-SR04、ESP-NOW、サーボ制御を継承し、I2C Scanner・BME280・INA219とFirmwareバージョン取得を追加します。AE-BME280は3.3V給電、I2C用J3接続、0x76用SDO→GND接続が必要です。BLE UARTは含みません。",
         "description": "ESP32-WROOM-32 用 ESP32 Education Firmware v1.0.0 インストーラ",
         "language": "表示言語"
